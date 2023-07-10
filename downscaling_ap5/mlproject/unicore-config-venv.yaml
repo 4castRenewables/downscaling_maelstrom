@@ -1,0 +1,28 @@
+UnicoreApiUrl: https://zam2125.zam.kfa-juelich.de:9112/JUWELS/rest/core
+Environment:
+  Python: /p/home/jusers/grau1/juwels/downscaling_maelstrom/downscaling_ap5/ap5
+  Modules:
+    - Stages/2022
+    - GCCcore/.11.2.0
+    - GCC/11.2.0
+    - ParaStationMPI/5.5.0-1
+    - mpi4py/3.1.3
+    - CDO/2.0.2
+    - NCO/5.0.3
+    - netcdf4-python/1.5.7-serial
+    - SciPy-bundle/2021.10
+    - xarray/0.20.1
+    - dask/2021.9.1
+    - TensorFlow/2.6.0-CUDA-11.5
+    - Cartopy/0.20.0
+    - Graphviz/2.49.3
+  Environment:
+    GIT_PYTHON_REFRESH: quiet
+Resources:
+  Queue: develbooster
+  Nodes: 1
+Exclude:
+  - "*.sif"
+  - "figures"
+  - "saved_model"
+
