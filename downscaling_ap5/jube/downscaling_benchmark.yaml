@@ -1,5 +1,3 @@
-name:    ap5-model
-outpath: ap5_train
 comment: MAELSTROM AP5 model benchmark jube script
 
 parameterset:
@@ -28,16 +26,8 @@ parameterset:
       - name: indir
         type: string
         tag: "(jwb|jwc|hdfml)+!cscratch"
-        _: "${SCRATCH}/maelstrom/maelstrom_data/ap5_michael/preprocessed_tier2/monthly_files_copy/"
-      - name: indir
-        type: string
-        tag: "e4nvidia|e4amd"
-        _: "/data/maelstrom/langguth1/tier2/train/"
-      - name: indir
-        type: string
-        tag: "(jwb|jwc|hdfml)+cscratch"
-        _: "${CSCRATCH}/maelstrom/maelstrom_data/ap5_michael/preprocessed_tier2/monthly_files_copy/"
-      - name: js_norm
+        _: "/p/scratch/deepacf/maelstrom/maelstrom_data/ap5/downscaling_benchmark_dataset/preprocessed_tier2/test_subset"
+     - name: js_norm
         type: string
         tag: jwb|jwc|hdfml
         _: "/p/scratch/deepacf/maelstrom/maelstrom_data/ap5_michael/preprocessed_tier2/monthly_files_copy/zscore_norm.json"

@@ -1,0 +1,15 @@
+name: ap5
+
+entry_points:
+  main:
+    parameters:
+      in: {type: str, default: /p/scratch/deepacf/maelstrom/maelstrom_data/ap5/downscaling_benchmark_dataset/preprocessed_tier2/test_subset}
+      out: {type: str, default: ../trained_models}
+      model: {type: str, default: wgan}
+      dataset: {type: str, default: tier2}
+      exp_name: {type: str, default: wgan_benchmark_jube_$jube_benchmark_id}
+      conf_md: {type: str, default: ../config/config_wgan_benchmark.json}
+      conf_ds: {type: str, default: ../config/config_ds_tier2.json}
+      js_norm: {type: str, default: /p/scratch/deepacf/maelstrom/maelstrom_data/ap5/downscaling_benchmark_dataset/preprocessed_tier2/test_subset/norm.json}
+      id: {type: str, default: 43}
+    command: "python3 -u main_train.py -in {in} -out {out}  -model {model} -dataset {dataset} -exp_name {exp_name} -conf_md {conf_md} -conf_ds {conf_ds} -js_norm {js_norm} -id {id}"
