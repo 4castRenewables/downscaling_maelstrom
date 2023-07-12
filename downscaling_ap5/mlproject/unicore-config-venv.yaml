@@ -19,7 +19,7 @@ Environment:
   Environment:
     GIT_PYTHON_REFRESH: quiet
 Resources:
-  Queue: develbooster
+  Queue: booster
   Nodes: 1
   Project: deepacf
 Exclude:
