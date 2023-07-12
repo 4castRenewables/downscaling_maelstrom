@@ -1,6 +1,6 @@
 UnicoreApiUrl: https://zam2125.zam.kfa-juelich.de:9112/JUWELS/rest/core
 Environment:
-  Python: /p/home/jusers/grau1/juwels/downscaling_maelstrom/downscaling_ap5/ap5
+  Python: /p/project/deepacf/maelstrom/grau1/ap5_env
   Modules:
     - Stages/2022
     - GCCcore/.11.2.0
