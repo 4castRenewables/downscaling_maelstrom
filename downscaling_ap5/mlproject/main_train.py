@@ -20,7 +20,7 @@ import json as js
 from timeit import default_timer as timer
 import numpy as np
 import xarray as xr
-from tensorflow.keras.utils import plot_model
+from keras.utils.vis_utils import plot_model
 from all_normalizations import ZScore
 from model_utils import ModelEngine, TimeHistory, handle_opt_utils, get_loss_from_history
 from handle_data_class import HandleDataClass, get_dataset_filename
@@ -189,7 +189,6 @@ def main(parser_args):
 
     if callable(getattr(model, "plot_model", False)):
         print("if")
-        print(os.environ['PYTHONPATH'].split(os.pathsep))
         model.plot_model(model_savedir, show_shapes=True)
     else:
         print("else--------------------------------------------------------------------------------")
