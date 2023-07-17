@@ -20,7 +20,6 @@ import json as js
 from timeit import default_timer as timer
 import numpy as np
 import xarray as xr
-import mlflow
 from tensorflow.keras.utils import plot_model
 from all_normalizations import ZScore
 from model_utils import ModelEngine, TimeHistory, handle_opt_utils, get_loss_from_history
@@ -220,7 +219,8 @@ def main(parser_args):
         benchmark_dict["final validation loss"] = get_loss_from_history(history, "val_recon_loss")
     # ... and save CSV-file with tracked data on disk
 
-    bm_obj.populate_csv_from_dict({"final training loss":benchmark_dict["final training loss"] ,"final validation loss":benchmark_dict["final validation loss"]})
+    bm_obj.populate_csv_from_dict(benchmark_dict)
+    #mlflow.log_metrics({"final training loss":benchmark_dict["final training loss"] ,"final validation loss":benchmark_dict["final validation loss"]})
 
     js_file = os.path.join(model_savedir, "benchmark_training_static.json")
     if not os.path.isfile(js_file):
