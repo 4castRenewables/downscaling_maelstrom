@@ -188,12 +188,12 @@ def main(parser_args):
     model.save(filepath=model_savedir)
 
     if callable(getattr(model, "plot_model", False)):
-        model.plot_model(model_savedir, show_shapes=True)
         print("if")
+        model.plot_model(model_savedir, show_shapes=True)
     else:
+        print("else--------------------------------------------------------------------------------")
         plot_model(model, os.path.join(model_savedir, f"plot_{parser_args.exp_name}.png"),
                    show_shapes=True)
-        print("else")
 
     # final timing
     tend = timer()
