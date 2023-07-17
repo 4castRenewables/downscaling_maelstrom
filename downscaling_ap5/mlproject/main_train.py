@@ -189,6 +189,7 @@ def main(parser_args):
 
     if callable(getattr(model, "plot_model", False)):
         print("if")
+        print(os.environ['PYTHONPATH'].split(os.pathsep))
         model.plot_model(model_savedir, show_shapes=True)
     else:
         print("else--------------------------------------------------------------------------------")
