@@ -26,6 +26,7 @@ from model_utils import ModelEngine, TimeHistory, handle_opt_utils, get_loss_fro
 from handle_data_class import HandleDataClass, get_dataset_filename
 from other_utils import free_mem, print_gpu_usage, print_cpu_usage, copy_filelist
 from benchmark_utils import BenchmarkCSV, get_training_time_dict
+keras.utils.vis_utils.pydot = pydot
 
 
 # Open issues:
