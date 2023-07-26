@@ -222,7 +222,10 @@ def main(parser_args):
     # ... and save CSV-file with tracked data on disk
 
     bm_obj.populate_csv_from_dict(benchmark_dict)
-    mlflow.log_metrics({"final training loss":benchmark_dict["final training loss"] ,"final validation loss":benchmark_dict["final validation loss"]})
+    final_training_loss= dict([(f"final training loss epoch {i}", x) for i, x in enumerate(benchmark_dict["final training loss"])])
+    final_validation_loss = dict(
+        [(f"final validation loss {i+1}", x) for i, x in enumerate(benchmark_dict["final validation loss"])])
+    mlflow.log_metrics({**final_training_loss, **final_validation_loss})
 
     js_file = os.path.join(model_savedir, "benchmark_training_static.json")
     if not os.path.isfile(js_file):
