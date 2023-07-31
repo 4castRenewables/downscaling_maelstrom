@@ -16,7 +16,7 @@ source <venv-name>/bin/activate
 
 3. Install ap5 dependencies with pip. The requirements file is in the `env_setup` file
 ```
-pip install -r downscaling_maelstrom/downscaling_ap5/env_setup/requirements_wo_modules.txt
+pip install -r downscaling_ap5/env_setup/requirements_wo_modules.txt
 ```
 
 4. Add the following code at the end of the virtual enviroment activate file `<venv-name>/bin/activate`:
