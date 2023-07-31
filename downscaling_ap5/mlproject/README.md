@@ -1,6 +1,7 @@
 In juwelsbooster
 1. Set python to version 3.9. For this load the following modules:
-```ml --force purge
+```
+ml --force purge
 ml use $OTHERSTAGES
 ml Stages/2022
 ml GCCcore/.11.2.0
@@ -20,7 +21,7 @@ pip install -r downscaling_maelstrom/downscaling_ap5/env_setup/requirements_wo_m
 
 4. Add the following code at the end of the virtual enviroment activate file `<venv-name>/bin/activate`:
 ```
-BASE_DIR="/absolute/path/to/downscaling_maelstrom/downscaling_ap5"
+BASE_DIR="<absolute path to downscaling_maelstrom/downscaling_ap5 directory>"
 # expand PYTHONPATH
 export PYTHONPATH=${BASE_DIR}:$PYTHONPATH
 export PYTHONPATH=${BASE_DIR}/utils:$PYTHONPATH
@@ -41,5 +42,5 @@ Environment:
 
 2. Run your experiment with mantik
 ```
-mantik runs submit /absolute/path/to/mlproject/ --backend-config unicore-config-venv.yaml --entry-point main --experiment-id 59 -v
+mantik runs submit <absolute path to downscaling_ap5/mlproject directory> --backend-config unicore-config-venv.yaml --entry-point main --experiment-id 59 -v
 ```

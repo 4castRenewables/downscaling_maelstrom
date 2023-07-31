@@ -16,5 +16,5 @@ Exclude:
   - "*.sif"
   - "figures"
   - "saved_model"
-
+  - README.md
 
