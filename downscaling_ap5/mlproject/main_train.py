@@ -21,7 +21,7 @@ from timeit import default_timer as timer
 import numpy as np
 import xarray as xr
 from keras.utils.vis_utils import plot_model
-from all_normalizations import ZScoregit 
+from all_normalizations import ZScore
 from model_utils import ModelEngine, TimeHistory, handle_opt_utils, get_loss_from_history
 from metrics_callback import MetricsHistory
 from handle_data_class import HandleDataClass, get_dataset_filename
