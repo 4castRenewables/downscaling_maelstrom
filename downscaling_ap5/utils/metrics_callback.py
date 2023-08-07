@@ -18,13 +18,13 @@ class MetricsHistory(Callback):
         )
 
         try:
-            self.training_loss[f"training loss epoch {epoch}"] = logs["loss"]
+            self.training_loss[f"training loss"] = logs["loss"]
         except KeyError:
-            self.training_loss[f"training loss epoch {epoch}"] = logs["recon_loss"]
+            self.training_loss[f"training loss"] = logs["recon_loss"]
 
         try:
-            self.validation_loss[f"validation loss epoch {epoch}"] = logs["val_loss"]
+            self.validation_loss[f"validation loss"] = logs["val_loss"]
         except KeyError:
-            self.validation_loss[f"validation loss epoch {epoch}"] = logs["val_recon_loss"]
+            self.validation_loss[f"validation loss"] = logs["val_recon_loss"]
 
-        mlflow.log_metrics({**self.training_loss, **self.validation_loss})
+        mlflow.log_metrics({**self.training_loss, **self.validation_loss}, step=epoch)
