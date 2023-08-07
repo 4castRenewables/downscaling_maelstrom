@@ -21,8 +21,9 @@ from timeit import default_timer as timer
 import numpy as np
 import xarray as xr
 from keras.utils.vis_utils import plot_model
-from all_normalizations import ZScore
+from all_normalizations import ZScoregit 
 from model_utils import ModelEngine, TimeHistory, handle_opt_utils, get_loss_from_history
+from metrics_callback import MetricsHistory
 from handle_data_class import HandleDataClass, get_dataset_filename
 from other_utils import free_mem, print_gpu_usage, print_cpu_usage, copy_filelist
 from benchmark_utils import BenchmarkCSV, get_training_time_dict
@@ -170,7 +171,7 @@ def main(parser_args):
     # get optional fit options and start training/fitting
     fit_opts = handle_opt_utils(model, "get_fit_opts")
     print(f"Start training of {parser_args.model.capitalize()}...")
-    history = model.fit(x=tfds_train, callbacks=[time_tracker], epochs=model.hparams["nepochs"],
+    history = model.fit(x=tfds_train, callbacks=[time_tracker, MetricsHistory()], epochs=model.hparams["nepochs"],
                         steps_per_epoch=steps_per_epoch, validation_data=tfds_val, validation_steps=300,
                         verbose=2, **fit_opts)
 
@@ -222,10 +223,10 @@ def main(parser_args):
     # ... and save CSV-file with tracked data on disk
 
     bm_obj.populate_csv_from_dict(benchmark_dict)
-    final_training_loss= dict([(f"final training loss epoch {i}", x) for i, x in enumerate(benchmark_dict["final training loss"])])
-    final_validation_loss = dict(
-        [(f"final validation loss {i+1}", x) for i, x in enumerate(benchmark_dict["final validation loss"])])
-    mlflow.log_metrics({**final_training_loss, **final_validation_loss})
+    # final_training_loss= dict([(f"final training loss epoch {i}", x) for i, x in enumerate(benchmark_dict["final training loss"])])
+    # final_validation_loss = dict(
+    #     [(f"final validation loss {i+1}", x) for i, x in enumerate(benchmark_dict["final validation loss"])])
+    # mlflow.log_metrics({**final_training_loss, **final_validation_loss})
 
     js_file = os.path.join(model_savedir, "benchmark_training_static.json")
     if not os.path.isfile(js_file):
