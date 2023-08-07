@@ -7,15 +7,15 @@ class MetricsHistory(Callback):
         self.training_loss = dict()
         self.validation_loss= dict()
 
-    def on_batch_end(self, batch, logs={}):
+    def on_epoch_end(self, epoch, logs={}):
         try:
-            self.training_loss[f"training loss epoch {batch}"] = logs.get('loss')
+            self.training_loss[f"training loss epoch {epoch}"] = logs.get('loss')
         except KeyError:
-            self.training_loss[f"training loss epoch {batch}"] = logs.get('recon_loss')
+            self.training_loss[f"training loss epoch {epoch}"] = logs.get('recon_loss')
 
         try:
-            self.validation_loss[f"validation loss epoch {batch}"] = logs.get('val_loss')
+            self.validation_loss[f"validation loss epoch {epoch}"] = logs.get('val_loss')
         except KeyError:
-            self.validation_loss[f"validation loss epoch {batch}"] = logs.get('val_recon_loss')
+            self.validation_loss[f"validation loss epoch {epoch}"] = logs.get('val_recon_loss')
 
         mlflow.log_metrics({**self.training_loss, **self.validation_loss})
