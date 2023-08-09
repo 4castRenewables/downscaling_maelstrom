@@ -8,15 +8,6 @@ class MetricsHistory(Callback):
         self.validation_loss= dict()
 
     def on_epoch_end(self, epoch, logs=None):
-        keys = list(logs.keys())
-        print("End epoch {} of training; got log keys: {}".format(epoch, keys))
-
-        print(
-            "The average loss for epoch {} is {:7.2f} ".format(
-                epoch, logs["recon_loss"]
-            )
-        )
-
         try:
             self.training_loss[f"training loss"] = logs["loss"]
         except KeyError:

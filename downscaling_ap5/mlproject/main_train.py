@@ -28,7 +28,7 @@ from handle_data_class import HandleDataClass, get_dataset_filename
 from other_utils import free_mem, print_gpu_usage, print_cpu_usage, copy_filelist
 from benchmark_utils import BenchmarkCSV, get_training_time_dict
 import keras
-import mlflow
+
 import pydot as pyd
 keras.utils.vis_utils.pydot = pyd
 
@@ -223,10 +223,6 @@ def main(parser_args):
     # ... and save CSV-file with tracked data on disk
 
     bm_obj.populate_csv_from_dict(benchmark_dict)
-    # final_training_loss= dict([(f"final training loss epoch {i}", x) for i, x in enumerate(benchmark_dict["final training loss"])])
-    # final_validation_loss = dict(
-    #     [(f"final validation loss {i+1}", x) for i, x in enumerate(benchmark_dict["final validation loss"])])
-    # mlflow.log_metrics({**final_training_loss, **final_validation_loss})
 
     js_file = os.path.join(model_savedir, "benchmark_training_static.json")
     if not os.path.isfile(js_file):
