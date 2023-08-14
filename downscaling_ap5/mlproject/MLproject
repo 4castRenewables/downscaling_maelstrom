@@ -4,32 +4,29 @@ entry_points:
   main:
     parameters:
       in:
-        type: str
+        type: string
         default: /p/scratch/deepacf/maelstrom/maelstrom_data/ap5/downscaling_benchmark_dataset/preprocessed_tier2/test_subset
       out:
-        type: str
+        type: string
         default: /p/project/deepacf/maelstrom/grau1/downscaling_maelstrom/downscaling_ap5/trained_models
       model:
-        type: str
+        type: string
         default: wgan
       dataset:
-        type: str
+        type: string
         default: tier2
       exp_name:
-        type: str
-        default: wgan_benchmark_mantik_${SLURM_JOB_ID}
+        type: string
+        default: wgan_benchmark_mantik
       conf_md:
-        type: str
-          default: /p/project/deepacf/maelstrom/grau1/downscaling_maelstrom/downscaling_ap5/config/config_wgan_benchmark.json
+        type: string
+        default: /p/project/deepacf/maelstrom/grau1/downscaling_maelstrom/downscaling_ap5/config/config_wgan_benchmark.json
       conf_ds:
-        type: str
+        type: string
         default: /p/project/deepacf/maelstrom/grau1/downscaling_maelstrom/downscaling_ap5/config/config_ds_tier2.json
       js_norm:
-        type: str
+        type: string
         default: /p/scratch/deepacf/maelstrom/maelstrom_data/ap5/downscaling_benchmark_dataset/preprocessed_tier2/test_subset/norm.json
-      id:
-        type: str
-        default: ${SLURM_JOB_ID}
     command: >
       python3 -u main_train.py \
         -in {in} \
@@ -39,5 +36,4 @@ entry_points:
         -exp_name {exp_name} \
         -conf_md {conf_md} \
         -conf_ds {conf_ds} \
-        -js_norm {js_norm} \
-        -id {id}
+        -js_norm {js_norm}
