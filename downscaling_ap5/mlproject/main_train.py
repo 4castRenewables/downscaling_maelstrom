@@ -260,6 +260,7 @@ if __name__ == "__main__":
                         required=True, help="JSON-file to configure dataset to be used for training.")
     parser.add_argument("--json_norm_file", "-js_norm", dest="js_norm", type=str, default=None,
                         help="JSON-file providing normalization parameters.")
+    # This is added here because MLproject files cannot parse bash statements
     parser.add_argument("--job_id", "-id", dest="id", type=int, required=False, default=os.getenv("SLURM_JOB_ID"), help="Job-id from Slurm.")
 
     args = parser.parse_args()
