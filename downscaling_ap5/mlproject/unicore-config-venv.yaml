@@ -6,7 +6,7 @@ Environment:
     - GCCcore/.11.2.0
     - NCCL/2.11.4-CUDA-11.5
     - Python/3.9.6
-  Environment:
+  Variables:
     GIT_PYTHON_REFRESH: quiet
 Resources:
   Queue: devel
