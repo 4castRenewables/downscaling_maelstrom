@@ -14,6 +14,13 @@ python -m venv <venv-name>
 source <venv-name>/bin/activate
 ```
 
+3. Clone this Git repository and checkout the `develop` branch
+
+```
+git clone https://github.com/saragrau4/downscaling_maelstrom.git
+git checkout develop
+```
+
 3. Install ap5 dependencies with pip. The requirements file is in the `env_setup` file
 ```
 pip install -r downscaling_ap5/env_setup/requirements_wo_modules.txt
