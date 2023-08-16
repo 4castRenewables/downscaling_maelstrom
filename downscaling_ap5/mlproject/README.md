@@ -1,4 +1,4 @@
-In juwelsbooster
+### In juwelsbooster
 1. Set python to version 3.9. For this load the following modules:
 ```
 ml --force purge
@@ -14,7 +14,7 @@ python -m venv <venv-name>
 source <venv-name>/bin/activate
 ```
 
-3. Clone this Git repository and checkout the `develop` branch
+3. Clone this git repository and checkout the `develop` branch
 
 ```
 git clone https://github.com/saragrau4/downscaling_maelstrom.git
@@ -38,7 +38,13 @@ export PYTHONPATH=${BASE_DIR}/postprocess:$PYTHONPATH
 export PYTHONPATH=${BASE_DIR}/preprocess:$PYTHONPATH
 ```
 <br>
-In your local mlproject
+
+### In mantik
+
+Set up a project in Mantik to enable the execution of your experiment. For a step-by-step guide, refer to the quickstart tutorial available [here](https://mantik-ai.gitlab.io/mantik/ui/quickstart.html)
+
+
+### In your local mlproject
 
 1. Set `Python` in `unicore-config-venv.yaml` to the path of your virtual enviroment
 
