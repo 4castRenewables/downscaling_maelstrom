@@ -49,5 +49,5 @@ Environment:
 
 2. Run your experiment with mantik
 ```
-mantik runs submit <absolute path to downscaling_ap5/mlproject directory> --backend-config unicore-config-venv.yaml --entry-point main --experiment-id 59 -v
+mantik runs submit <absolute path to downscaling_ap5/mlproject directory> --backend-config unicore-config-venv.yaml --entry-point main --experiment-id <experiment ID> -v
 ```
