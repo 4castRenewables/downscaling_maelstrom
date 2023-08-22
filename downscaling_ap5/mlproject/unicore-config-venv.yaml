@@ -1,6 +1,9 @@
 UnicoreApiUrl: https://zam2125.zam.kfa-juelich.de:9112/JUWELS/rest/core
 Environment:
-  Python: /p/project/deepacf/maelstrom/grau1/test
+  Python: /p/project/deepacf/maelstrom/grau1/ap5-env
+  PreRunCommand:
+    Command: module load Stages/2022 GCCcore/.11.2.0 Python/3.9.6
+    ExecuteOnLoginNode: False
   Modules:
     - Stages/2022
     - GCCcore/.11.2.0
