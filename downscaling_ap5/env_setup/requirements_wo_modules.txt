@@ -13,3 +13,4 @@ pydot
 h5netcdf==1.2.0
 netcdf4==1.6.4
 dask[array]
+graphviz==0.20.1
