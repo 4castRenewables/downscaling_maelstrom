@@ -46,10 +46,9 @@ export PYTHONPATH=${BASE_DIR}/preprocess:$PYTHONPATH
 
 8. Update the `unicore-config-venv.yaml` file by specifying the `PreRunCommand` with the path to your virtual environment.
 
-<pre><code>   PreRunCommand:
-    Command: > 
-      module load Stages/2022 GCCcore/.11.2.0 NCCL/2.11.4-CUDA-11.5 Python/3.9.6;
-      source <b>/path/to/&lt;venv-name&gt;</b>/bin/activate;
+<pre><code>   PreRunCommandOnComputeNode: > 
+    module load Stages/2022 GCCcore/.11.2.0 NCCL/2.11.4-CUDA-11.5 Python/3.9.6;
+    source <b>/path/to/&lt;venv-name&gt;</b>/bin/activate
 </code></pre>
 
 9. Run your experiment with mantik

@@ -192,12 +192,6 @@ def main(parser_args):
     os.makedirs(model_savedir, exist_ok=True)
     model.save(filepath=model_savedir)
 
-    if callable(getattr(model, "plot_model", False)):
-        model.plot_model(model_savedir, show_shapes=True)
-    else:
-        plot_model(model, os.path.join(model_savedir, f"plot_{parser_args.exp_name}.png"),
-                   show_shapes=True)
-
     # final timing
     tend = timer()
     saving_time = tend - t0_save
